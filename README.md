@@ -1,4 +1,4 @@
-## backend app for cellexpert 
+## backend app for razorgrip 
 
 ##### Activate app :
     npm i
