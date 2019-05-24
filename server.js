@@ -1,50 +1,57 @@
 'use strict';
-import * as utils from './utils'
 
 const koa = require('koa')
-const app = new koa()
+const app = new koa();
+const server = require('http').createServer(app.callback())
+global.io = require('socket.io')(server)
+// io.on('connection', function(socket){
+//     console.log('8888888888888888888888');
+//     socket.on('event', function(data){});
+//     socket.on('disconnect', function(){});
+// });
+require('./src/services/socketIo')
+
+
 const cors = require('koa2-cors')
 const koaRouter = require('koa-router')
 
+import bodyParser from 'koa-bodyparser'
+const koaBody = require('koa-body')
+app.use(koaBody({ multipart: true }))
+
 const mongoose = require('mongoose')
+
+
+// Using Passport for authentication
+import passport from 'koa-passport'
+require('./config/passport')
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 mongoose.set('useCreateIndex', true);
 mongoose.Promise = global.Promise
-mongoose.connect(`mongodb://ilanben:xsw23edc@ds131721.mlab.com:31721/trippo`)
+mongoose.connect(`mongodb://ilanben:xsw23edc@ds145223.mlab.com:45223/dagon-db`)
 
-
+//mongodb://<dbuser>:<dbpassword>@ds145223.mlab.com:45223/dagon-db
 app.use(cors({
     origin: '*',
     allowedHeaders: ['*'],
+    // allowedHeaders: ['Origin', 'Content-Type', 'X-Auth-Token',],
     allowMethods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-    // allow: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+    allow: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
     credentials: true,
 }))
 const router = new koaRouter()
 
-router.get('koala', '/testConnection', async (ctx) => {
-    ctx.body = 'ok'
-})
-router.get('koala', '/fetch-words', async (ctx) => {
-    ctx.body = await utils.fetchTweetsFromApi()
-})
-router.get('koala', '/fetchWordsFromMongo', async (ctx) => {
-    ctx.body = await utils.fetchWordsFromMongo()
-})
-router.get('koala', '/tweet-report', async (ctx) => {
-    ctx.body = await utils.tweetReport()
-})
-router.get('koala', '/deleteAll', async (ctx) => {
-    ctx.body = await utils.deleteAll()
-})
-// const modules1 = require('../src/modules/v1')
-// modules1(app)
+const modules1 = require('./src/modules/v1')
+modules1(app)
 
 
 
 app.use(router.routes())
     .use(router.allowedMethods())
 
-app.listen(3333, () => console.log('running on port 3333'))
+server.listen(3001, () => console.log('running on port 3001'))

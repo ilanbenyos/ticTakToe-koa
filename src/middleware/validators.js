@@ -22,6 +22,16 @@ export async function ensureUser (ctx, next) {
   }
   return next()
 }
+export async function getUserByToken(token){
+    let decoded = null
+    try {
+        decoded = verify(token, config.token)
+    } catch (err) {
+        console.log('333333333333333333333');
+    }
+    let user= await User.findById(decoded.id, '-password');
+    return user
+}
 
 export async function getMeUser (ctx, next) {
   const token = getToken(ctx)
