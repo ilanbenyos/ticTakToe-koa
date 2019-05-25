@@ -75,6 +75,12 @@ export default [
             games.fetchGame,
             gameController.gameMove
         ]
+    },{
+        route: '/testV',
+        method: 'POST',
+        handlers: [
+            gameController.testV
+        ]
     },
 
 ]
