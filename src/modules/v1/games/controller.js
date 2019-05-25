@@ -1,6 +1,6 @@
 import Game from '../../../models/games'
 import User from "../../../models/users";
-
+import _ from "lodash"
 
 export async function quitGame (ctx, next) {
 }
@@ -10,12 +10,12 @@ export async function rejectJoinRequest (ctx, next) {
     const user2 = await User.findById(memberId)
     const memberSocketId = user2.socketId
 
-    let idx = game.waitingList.findIndex(item=>item._id === memberId)
-    game.waitingList.splice(idx,1)
+    // let idx = game.waitingList.findIndex(item=>item._id === memberId)
+    // game.waitingList.splice(idx,1)
 
     try {
-        await game.save()
-        io.to(memberSocketId).emit('JOIN_REQUEST_REJECTED')
+        // await game.save()
+        io.to(memberSocketId).emit('JOIN_REQUEST_REJECTED', "Join request rejected")
     }catch(e){
         console.log('rejectJoinRequest',e);
     }
@@ -94,6 +94,7 @@ export async function joinRequest (ctx, next) {
           } else{
               game[idx] = user;
           }
+        game.waitingList = _.cloneDeep(game.waitingList)
         await game.save();
         ctx.body = ctx.body || {};
         ctx.body.game =game;

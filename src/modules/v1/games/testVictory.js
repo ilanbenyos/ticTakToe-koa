@@ -39,7 +39,10 @@ const testCols=(b)=>{
 const testRows=(b)=>{
     for(let i =0; i<b.length; i++){
         arr = [b[i][0], b[i][1], b[i][2]]
-        if (testArr(arr)) return [[i,0],[i,1],[i,2]];
-        return false
+        let res = testArr(arr)
+        if (res) {
+            return [[i, 0], [i, 1], [i, 2]];
+        }
     }
+    return false
 };
