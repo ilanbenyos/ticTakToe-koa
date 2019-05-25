@@ -11,7 +11,6 @@ global.io.use((socket, next) => {
 })
 
 io.on('connection', async (socket) => {
-    console.log('socket.id',socket.id);
   await userFunctions.userConnected(socket)
   socket.on('authenticate', (msg) => {
     socket.emit('authenticate', msg)

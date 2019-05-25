@@ -11,12 +11,13 @@ export async function ensureUser (ctx, next) {
     ctx.throw(401)
   }
   let decoded = null
-  try {
-    decoded = verify(token, config.token)
-  } catch (err) {
-    ctx.throw(401)
-  }
-  ctx.state.user = await User.findById(decoded.id, '-password')
+  // try {
+  //   decoded = verify(token, config.token)
+  // } catch (err) {
+  //   ctx.throw(401)
+  // }
+  // ctx.state.user = await User.findById(decoded.id, '-password')
+  ctx.state.user = await User.findById(token, '-password')
   if (!ctx.state.user) {
     ctx.throw(401)
   }
@@ -24,12 +25,15 @@ export async function ensureUser (ctx, next) {
 }
 export async function getUserByToken(token){
     let decoded = null
-    try {
-        decoded = verify(token, config.token)
-    } catch (err) {
-        console.log('333333333333333333333');
-    }
-    let user= await User.findById(decoded.id, '-password');
+    // try {
+    //     decoded = verify(token, config.token)
+    // } catch (err) {
+    //     console.log('333333333333333333333');
+    // }
+    // let user= await User.findById(decoded.id, '-password');
+
+    let user= await User.findById(token, '-password');
+    if(!user)console.log('getUserByToken- no user');
     return user
 }
 

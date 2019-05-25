@@ -20,11 +20,26 @@ export default [
         ]
     },
     {
+        route: '/logout',
+        method: 'POST',
+        handlers: [
+            ensureUser,
+            user.logout
+        ]
+    },
+    {
         route: '/getMe',
         method: 'POST',
         handlers: [
             ensureUser,
             user.getMe
+        ]
+    }, {
+        route: '/testConnection',
+        method: 'POST',
+        handlers: [
+            ensureUser,
+            user.testConnection
         ]
     },
 ]

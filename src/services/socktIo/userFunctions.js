@@ -19,6 +19,7 @@ const userFunctions = {
       await User.findByIdAndUpdate(userId, {socketId: null})
       return true
     } catch (err) {
+        console.log('userDisconnected error');
       return false
     }
   }

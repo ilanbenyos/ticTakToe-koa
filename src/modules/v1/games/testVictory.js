@@ -1,4 +1,6 @@
-export function testVictory(b){
+
+
+export default async (b)=> {
     let tRows =testRows(b);
     if(tRows) return tRows;
 

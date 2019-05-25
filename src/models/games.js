@@ -4,8 +4,8 @@ const Game = new mongoose.Schema({
     board: { type: Array, default:[[null,null,null],[null,null,null],[null,null,null]]},
     moves: {type: Array, default: []},
     victoryArr:{type:[Array,Boolean], default:false},
-    member:{type:Object},
     waitingList:{type:Array},
+    members:{type:Object},
     owner:{type:Object},
     nextPlayer:{type:String},//ownerId/memberId
     winner:{type:String},

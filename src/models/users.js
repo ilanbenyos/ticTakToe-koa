@@ -51,6 +51,6 @@ User.methods.generateToken = function generateToken () {
     const user = this
     return user.id //TODO :fix that!!!.
 
-    return jwt.sign({ id: user.id }, config.token)
+    // return jwt.sign({ id: user.id }, config.token)
 }
 export default mongoose.model('user', User)

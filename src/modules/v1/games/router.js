@@ -1,5 +1,6 @@
 import { ensureUser } from '../../../middleware/validators'
 import * as games from './controller'
+import * as gameController from './gameController'
 
 
 export const baseUrl = '/games'
@@ -59,6 +60,20 @@ export default [
             ensureUser,
             games.fetchGame,
             games.quitGame
+        ]
+    },{
+        route: '/deleteGame',
+        method: 'POST',
+        handlers: [
+            games.deleteGame
+        ]
+    },{
+        route: '/gameMove',
+        method: 'POST',
+        handlers: [
+            ensureUser,
+            games.fetchGame,
+            gameController.gameMove
         ]
     },
 

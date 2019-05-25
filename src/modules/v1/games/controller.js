@@ -3,23 +3,9 @@ import User from "../../../models/users";
 
 
 export async function quitGame (ctx, next) {
-    const game = ctx.state.game;
-    const owner = ctx.state.user;
-    const memberId = ctx.state.memberId
-
-    game.member = await User.findById(memberId)
-    game.owner.simbol = 'O';
-    game.member.simbol = 'X';
-    game.status = 'playing';
-
-    await game.save()
-    io.to(game.member.socketId).to(owner.socketId).emit('GAME_STARTED',game)
-
-    if (next) { return next() }
 }
 export async function rejectJoinRequest (ctx, next) {
     let game = ctx.state.game;
-    const owner = ctx.state.user;
     const memberId = ctx.request.body.memberId;
     const user2 = await User.findById(memberId)
     const memberSocketId = user2.socketId
@@ -45,26 +31,40 @@ export async function startGame (ctx, next) {
     if(game.status !=='waitingList'){
         ctx.throw(422, 'game is not in waitinglist status')
     }
-    game.member = await User.findById(memberId)
-    game.nextPlayer = (Math.random()> .5)? owner._id:game.member._id;
-    game.owner.simbol = (game.nextPlayer === owner._id)? 'O': 'X';
-    game.member.simbol =(game.nextPlayer === owner._id)? 'X': 'O';
+    const member = await User.findById(memberId)
+    let memberObj = {
+        _id: member._id,
+        userName: member.userName,
+        symbol:(game.nextPlayer === owner._id)? 'X': 'O'
+    }
+    game.member._id= member._id.toString();
+    game.member.userName= member.userName;
+
+    game.nextPlayer = (Math.random()> .5)? game.owner._id:game.member._id;
+    // game.owner.symbol = (game.nextPlayer === owner._id)? 'O': 'X';
+    // game.member.symbol =(game.nextPlayer === owner._id)? 'X': 'O';
     game.status = 'playing';
 
-    await game.save()
+    game.owner={...game.owner,symbol : (game.nextPlayer === owner._id)? 'O': 'X'};
+    game.member=memberObj
+
+    await game.save();
+    let kkk = await Game.findById(game._id);
+    let ooo = kkk.member
     try{
-        io.to(game.member.socketId).emit('GAME_STARTED',game)
+        io.to(member.socketId).emit('GAME_STARTED',game)
         io.to(owner.socketId).emit('GAME_STARTED',game)
     }catch(e){
         console.log('socket err',e);
     }
-
+    ctx.body ='ok'
     if (next) { return next() }
 }
 export async function joinRequest (ctx, next) {
     let game = ctx.state.game;
+    let user = ctx.state.user;
+
     if(game.status === 'init' || game.status === 'waitingList'){
-        let user = ctx.state.user;
         game.status = 'waitingList';
         let idx = game.waitingList.findIndex(i=> i._id ===user._id)
           if(idx === -1){
@@ -116,18 +116,34 @@ export async function fetchGame (ctx, next) {
 }
 
 export async function fetchGames (ctx, next) {
-
-    let user = ctx.state.user;
     ctx.body = ctx.body || {};
     ctx.body.games = await Game.find({});
 
     if (next) { return next() }
 }
+export async function deleteGame (ctx, next) {
+    let gameId = ctx.request.body.gameId;
+
+    await Game.findByIdAndRemove(gameId)
+    ctx.body = 'ok'
+    if (next) { return next() }
+}
 
 export async function initGame (ctx, next) {
-    let owner = ctx.state.user;
+    const owner = ctx.state.user
+    let ownerObj={
+        _id:owner._id.toString(),
+        userName:owner.userName,
+        symbol:null,
+    }
+    let member={
+        _id:null,
+        userName:null,
+        symbol:null
+    }
     let gameObj = {
-        owner
+        owner:ownerObj,
+        member
     }
     const game = new Game(gameObj)
     try {

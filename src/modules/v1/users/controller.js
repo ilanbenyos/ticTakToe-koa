@@ -1,6 +1,13 @@
 import User from '../../../models/users'
 import passport from 'koa-passport'
 
+export async function testConnection (ctx) {
+    let user = ctx.state.user;
+    let msg = ctx.request.body.msg;
+
+    io.to(user.socketId).emit('TEST_CONNECTION',msg)
+    ctx.body ='ok';
+}
 export async function getMe (ctx, next) {
     let user = ctx.state.user
     user = user.toJSON()
@@ -40,7 +47,6 @@ export async function login (ctx, next) {
         }
 
         const token = user.generateToken()
-console.log(token);
         const response = user.toJSON()
 
         delete response.password
@@ -51,4 +57,17 @@ console.log(token);
         }
     })(ctx, next)
     return res
+}
+
+export async function logout (ctx, next) {
+    const user = ctx.state.user;
+    user.socketId = null;
+    try {
+        await user.save()
+        ctx.body = 'ok'
+        if (next) { return next() }
+    } catch (err) {
+        console.log('err in logout', err)
+        ctx.throw(422, err.message)
+    }
 }
