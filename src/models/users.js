@@ -7,9 +7,10 @@ import config from '../../config'
 const User = new mongoose.Schema({
   objType: { type: String, default: 'userObj' },
   socketId: { type: String },
-  userName: { type: String, required: true },
+  userName: { type: String, required: true, unique: true },
   myGames: {type: Array, default: []},
     password: { type: String, required: true },
+    score:{wins:Number, lose:Number, even:Number, score:Number}
 });
 
 

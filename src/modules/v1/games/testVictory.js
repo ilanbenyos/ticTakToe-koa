@@ -13,12 +13,11 @@ export default async (b)=> {
     return false
 }
 
-
 const testArr=(arr)=>{
     if(!arr[0]) return false;
     if (arr[0] === arr[1] && arr[1] === arr[2] ) return arr;
     return false
-}
+};
 
 const testDiagonals=(b)=>{
     arr = [b[0][0],b[1][1],b[2][2]]

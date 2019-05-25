@@ -25,35 +25,36 @@ export async function register (ctx) {
     const user = new User({userName, password})
   try {
     await user.save()
+      const token = user.generateToken()
+      const response = user.toJSON()
+      delete response.password
+
+      ctx.body = {
+          user: response,
+          token
+      }
   } catch (err) {
-    console.log('err in createUser', err)
+    console.log('err in createUser','ERR in creating user')
     ctx.throw(422, err.message)
-  }
-
-  const token = user.generateToken()
-  const response = user.toJSON()
-    delete response.password
-
-  ctx.body = {
-    user: response,
-    token
   }
 }
 
 export async function login (ctx, next) {
     let res = passport.authenticate('local', (err, user) => {
         if (err || !user) {
-            ctx.throw(403, 'LOGIN FAILED111')
-        }
+            ctx.status = 400;
+            ctx.body =  'LOGIN FAILED';
+        }else {
 
-        const token = user.generateToken()
-        const response = user.toJSON()
+            const token = user.generateToken()
+            const response = user.toJSON()
 
-        delete response.password
+            delete response.password
 
-        ctx.body = {
-            token,
-            user: response
+            ctx.body = {
+                token,
+                user: response
+            }
         }
     })(ctx, next)
     return res

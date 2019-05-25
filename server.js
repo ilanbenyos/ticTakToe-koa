@@ -4,13 +4,8 @@ const koa = require('koa')
 const app = new koa();
 const server = require('http').createServer(app.callback())
 global.io = require('socket.io')(server)
-// io.on('connection', function(socket){
-//     console.log('8888888888888888888888');
-//     socket.on('event', function(data){});
-//     socket.on('disconnect', function(){});
-// });
-require('./src/services/socketIo')
 
+require('./src/services/socketIo')
 
 const cors = require('koa2-cors')
 const koaRouter = require('koa-router')
@@ -33,7 +28,6 @@ mongoose.set('useCreateIndex', true);
 mongoose.Promise = global.Promise
 mongoose.connect(`mongodb://ilanben:xsw23edc@ds145223.mlab.com:45223/dagon-db`)
 
-//mongodb://<dbuser>:<dbpassword>@ds145223.mlab.com:45223/dagon-db
 app.use(cors({
     origin: '*',
     allowedHeaders: ['*'],
