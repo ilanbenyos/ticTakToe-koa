@@ -57,7 +57,11 @@ export async function gameMove (ctx, next) {
         game.winner = user._id;
         game.status = 'ended';
     }
-
+    // =============TEST FOR FULL BOARD==========
+    if(game.moves.length === 9 && !game.winner){
+        game.winner = 'EVEN';
+        game.status = 'ended';
+    }
     // =============SAVE && NOTIFY USERS==========
     try {
         await game.save();
