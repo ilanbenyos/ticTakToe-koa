@@ -60,7 +60,7 @@ export async function gameMove (ctx, next) {
     // =============TEST FOR FULL BOARD==========
     if(game.moves.length === 9 && !game.winner){
         game.winner = 'EVEN';
-        game.status = 'ended';
+        game.status = 'ended';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   x
     }
     // =============SAVE && NOTIFY USERS==========
     try {

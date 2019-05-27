@@ -37,15 +37,16 @@ app.use(cors({
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
     credentials: true,
-}))
-const router = new koaRouter()
+}));
+const router = new koaRouter();
 
 const modules1 = require('./src/modules/v1')
-modules1(app)
+modules1(app);
 
 
 
 app.use(router.routes())
-    .use(router.allowedMethods())
+    .use(router.allowedMethods());
+let port =(process.env.PORT || 5000);
+server.listen(port, () => console.log(`running on port ${port}`));
 
-server.listen(3001, () => console.log('running on port 3001'))
