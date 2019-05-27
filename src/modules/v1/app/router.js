@@ -1,8 +1,6 @@
 import { ensureUser } from '../../../middleware/validators'
 import * as home from './controller'
 
-
-
 export default [
     {
         route: '/',
