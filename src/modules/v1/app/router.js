@@ -2,7 +2,7 @@ import * as home from './controller'
 
 export default [
     {
-        route: '/',
+        route: '/test',
         method: 'GET',
         handlers: [
           home.index
