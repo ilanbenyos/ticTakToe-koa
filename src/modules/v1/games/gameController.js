@@ -48,7 +48,6 @@ export async function gameMove (ctx, next) {
     game.board = tempBoard;
     game.nextPlayer = player2._id;
 
-
     // =============TEST FOR VICTORY==========
     const victoryArr = await testVictory(game.board);
 
