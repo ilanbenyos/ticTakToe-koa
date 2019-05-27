@@ -34,13 +34,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="1089" />
-          <entry key="txt" value="80" />
+          <entry key="txt" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="1089" />
-          <entry key="PLAIN_TEXT" value="80" />
+          <entry key="PLAIN_TEXT" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -97,8 +97,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modules/v1/games/gameController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="189">
+              <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -135,8 +135,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1517" />
-    <option name="y" value="43" />
+    <option name="x" value="1519" />
+    <option name="y" value="137" />
     <option name="width" value="1522" />
     <option name="height" value="887" />
   </component>
@@ -229,7 +229,7 @@
       <workItem from="1558536098210" duration="46987000" />
       <workItem from="1558685483074" duration="20275000" />
       <workItem from="1558723823043" duration="39825000" />
-      <workItem from="1558938448447" duration="5727000" />
+      <workItem from="1558938448447" duration="9792000" />
     </task>
     <task id="LOCAL-00001" summary="del nodemodules">
       <created>1558820783026</created>
@@ -266,12 +266,12 @@
       <option name="project" value="LOCAL" />
       <updated>1558946255800</updated>
     </task>
-    <task id="LOCAL-00006" summary="wip before score list">
-      <created>1558800671830</created>
+    <task id="LOCAL-00006" summary="fixing little bug">
+      <created>1558969766173</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1558800671830</updated>
+      <updated>1558969766173</updated>
     </task>
     <task id="LOCAL-00007" summary="wip">
       <created>1558812977875</created>
@@ -280,28 +280,27 @@
       <option name="project" value="LOCAL" />
       <updated>1558812977875</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12199000" />
+    <option name="totallyTimeSpent" value="16264000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1517" y="43" width="1522" height="887" extended-state="0" />
-    <editor active="true" />
+    <frame x="1519" y="137" width="1522" height="887" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.28167117" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.49402392" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.5697211" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32934928" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32641292" />
-      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.52058434" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.52058434" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -346,7 +345,8 @@
     <MESSAGE value="add gitignor" />
     <MESSAGE value="little refactor branch master" />
     <MESSAGE value="handling even game res" />
-    <option name="LAST_COMMIT_MESSAGE" value="handling even game res" />
+    <MESSAGE value="fixing little bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing little bug" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/modules/v1/users/controller.js">
@@ -453,8 +453,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/v1/games/gameController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="189">
+          <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
