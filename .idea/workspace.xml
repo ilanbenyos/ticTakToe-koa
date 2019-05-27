@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5ddd37b4-a7c9-4a10-8bab-b2d745f4cde6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/v1/games/gameController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/v1/games/gameController.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,14 +35,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1089" />
-          <entry key="txt" value="80" />
+          <entry key="js" value="1091" />
+          <entry key="json" value="7" />
+          <entry key="txt" value="93" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="1089" />
-          <entry key="PLAIN_TEXT" value="80" />
+          <entry key="JSON" value="7" />
+          <entry key="JavaScript" value="1091" />
+          <entry key="PLAIN_TEXT" value="93" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -72,20 +76,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/socketIo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="270">
               <caret line="27" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+            <state relative-caret-position="207">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -112,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/v1/games/gameController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1092">
-              <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+            <state relative-caret-position="352">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -132,6 +136,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/src/modules/v1/games/gameController.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -150,8 +155,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1520" />
-    <option name="y" value="147" />
+    <option name="x" value="1496" />
+    <option name="y" value="53" />
     <option name="width" value="1522" />
     <option name="height" value="887" />
   </component>
@@ -230,7 +235,7 @@
       <workItem from="1558685483074" duration="20275000" />
       <workItem from="1558723823043" duration="39825000" />
       <workItem from="1558938448447" duration="5727000" />
-      <workItem from="1558981637575" duration="239000" />
+      <workItem from="1558981637575" duration="651000" />
     </task>
     <task id="LOCAL-00001" summary="del nodemodules">
       <created>1558820783026</created>
@@ -267,28 +272,29 @@
       <option name="project" value="LOCAL" />
       <updated>1558946255800</updated>
     </task>
-    <task id="LOCAL-00006" summary="wip before score list">
-      <created>1558800671830</created>
+    <task id="LOCAL-00006" summary="handling even game res">
+      <created>1558981957580</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1558800671830</updated>
+      <updated>1558981957580</updated>
     </task>
-    <task id="LOCAL-00007" summary="wip">
-      <created>1558812977875</created>
+    <task id="LOCAL-00007" summary="little bugfix">
+      <created>1558982011569</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1558812977875</updated>
+      <updated>1558982011569</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12677000" />
+    <option name="totallyTimeSpent" value="13089000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1520" y="147" width="1522" height="887" extended-state="0" />
+    <frame x="1496" y="53" width="1522" height="887" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
@@ -346,7 +352,8 @@
     <MESSAGE value="add gitignor" />
     <MESSAGE value="little refactor branch master" />
     <MESSAGE value="handling even game res" />
-    <option name="LAST_COMMIT_MESSAGE" value="handling even game res" />
+    <MESSAGE value="little bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="little bugfix" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/modules/v1/users/controller.js">
@@ -360,6 +367,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="36" column="27" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -367,6 +377,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -411,25 +424,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/socketIo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/games.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -440,18 +453,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/v1/games/gameController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1092">
-          <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+        <state relative-caret-position="352">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/socketIo.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
