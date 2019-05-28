@@ -4,7 +4,7 @@ import passport from 'koa-passport'
 export async function testConnection (ctx) {
     let user = ctx.state.user;
     let msg = ctx.request.body.msg;
-
+    console.log('TEST_CONNECTION',user.socketId);
     io.to(user.socketId).emit('TEST_CONNECTION',msg)
     ctx.body ='ok';
 }
@@ -22,19 +22,19 @@ export async function register (ctx) {
   let userName = ctx.request.body.userName;
     let password = ctx.request.body.password
 
-    const user = new User({userName, password})
+    const user = new User({userName, password});
   try {
-    await user.save()
-      const token = user.generateToken()
-      const response = user.toJSON()
-      delete response.password
+    await user.save();
+      const token = user.generateToken();
+      const response = user.toJSON();
+      delete response.password;
 
       ctx.body = {
           user: response,
           token
       }
   } catch (err) {
-    console.log('err in createUser','ERR in creating user')
+    console.log('err in createUser','ERR in creating user');
     ctx.throw(422, err.message)
   }
 }

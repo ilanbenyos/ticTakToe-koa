@@ -10,18 +10,20 @@ global.io.use((socket, next) => {
   }
 })
 
-io.on('connection', async (socket) => {
-  await userFunctions.userConnected(socket)
-  socket.on('authenticate', (msg) => {
-    socket.emit('authenticate', msg)
-  })
-  socket.on('disconnect', async (reason) => {
-    if (reason === 'io server disconnect') {
-      socket.connect()
-    }
-    let userId = socket.handshake.query.userId
-    await userFunctions.userDisconnected(userId)
-  })
-})
+    io.on('connection', async (socket) => {
+        await userFunctions.userConnected(socket)
+        socket.emit('MSG', 'plplplplplplplplp')
+
+        socket.on('authenticate', (msg) => {
+            socket.emit('authenticate', msg)
+        })
+        socket.on('disconnect', async (reason) => {
+            if (reason === 'io server disconnect') {
+                socket.connect()
+            }
+            let userId = socket.handshake.query.userId
+            await userFunctions.userDisconnected(userId)
+        })
+    })
 
 
