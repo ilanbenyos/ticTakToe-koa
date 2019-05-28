@@ -1,8 +1,9 @@
-## backend app for razorgrip 
+## backend app for tic-tak-toe 
 
-##### Activate app :
+##### Run app :
     npm i
     node index.js
+    
 ##### Project Structure :
 ```
 1. koa.js.
