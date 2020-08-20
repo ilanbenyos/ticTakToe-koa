@@ -15,7 +15,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015-node5": "^1.2.0",
     "babel-preset-stage-0": "^6.24.1",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "glob": "^7.1.2",
     "jsonwebtoken": "^8.1.1",
     "koa": "^2.7.0",
